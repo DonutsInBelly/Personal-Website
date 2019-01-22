@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import { Menu, Icon, Image } from "semantic-ui-react";
+import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
 
 const Navbar = class extends React.Component {
   componentDidMount() {
@@ -12,35 +12,16 @@ const Navbar = class extends React.Component {
   render() {
     const { activeItem } = this.setState;
     return (
-      <Menu fixed="top">
-        <Menu.Item
-          name="home"
-          active={activeItem === "home"}
-          onClick={this.handleItemClick}
-        >
-          <Link to="/" style={{ color: "inherit" }}>
-            <Icon name="home" />
+      <AppBar position="static" color="default">
+        <Toolbar>
+          <Link to="/">
+            <Button color="inherit">Carlin</Button>
           </Link>
-        </Menu.Item>
-        <Menu.Item
-          name="about"
-          active={activeItem === "about"}
-          onClick={this.handleItemClick}
-        >
-          <Link to="/about" style={{ color: "inherit" }}>
-            About Me
+          <Link to="/about">
+            <Button color="inherit">About Me</Button>
           </Link>
-        </Menu.Item>
-        <Menu.Item position="right">
-          <a
-            href="https://github.com/dominusbelli"
-            target="_blank"
-            style={{ color: "inherit" }}
-          >
-            <Icon name="github" />
-          </a>
-        </Menu.Item>
-      </Menu>
+        </Toolbar>
+      </AppBar>
     );
   }
 };

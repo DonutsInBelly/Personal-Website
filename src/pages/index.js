@@ -1,7 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
-import { Grid, Header, Item, Responsive, Segment } from "semantic-ui-react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  Grid,
+  Typography
+} from "@material-ui/core";
 import Layout from "../components/Layout";
 
 export default class IndexPage extends React.Component {
@@ -11,27 +17,25 @@ export default class IndexPage extends React.Component {
 
     return (
       <Layout>
-        <Responsive>
-          <Header as="h1">Latest Posts</Header>
-        </Responsive>
+        <Grid>
+          <Typography variant="h1">Latest Posts</Typography>
+        </Grid>
 
         {posts.map(({ node: post }) => (
-          <Responsive>
-            <Segment basic>
-              <Item>
-                <Item.Content>
-                  <Item.Header>
-                    <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
-                  </Item.Header>
-                  <Item.Meta>{post.frontmatter.date}</Item.Meta>
-                  <Item.Description>{post.excerpt}</Item.Description>
-                  <Item.Extra>
-                    <Link to={post.fields.slug}>Keep Reading →</Link>
-                  </Item.Extra>
-                </Item.Content>
-              </Item>
-            </Segment>
-          </Responsive>
+          <Grid>
+            <Card>
+              <CardHeader>
+                <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
+              </CardHeader>
+              <CardContent>
+                <Typography variant="h6">{post.frontmatter.date}</Typography>
+                <Typography paragraph>{post.excerpt}</Typography>
+                <Typography>
+                  <Link to={post.fields.slug}>Keep Reading →</Link>
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
         ))}
       </Layout>
     );

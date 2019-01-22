@@ -5,6 +5,8 @@
   "author": "Carlin Au",
   "dependencies": {
     "@emotion/core": "^10.0.6",
+    "@material-ui/core": "^3.9.0",
+    "@material-ui/icons": "^3.0.2",
     "bulma": "^0.7.0",
     "gatsby": "^2.0.66",
     "gatsby-image": "^2.0.23",
@@ -29,7 +31,6 @@
     "react": "^16.2.0",
     "react-dom": "^16.4.1",
     "react-helmet": "^5.2.0",
-    "semantic-ui-react": "^0.84.0",
     "uuid": "^3.2.1"
   },
   "keywords": [
